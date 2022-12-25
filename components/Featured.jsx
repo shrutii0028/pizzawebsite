@@ -11,15 +11,15 @@ const Featured = () => {
     // ];
   return (
     <div className={styles.container}>
-        <Image src="/images/arrowl.png" alt="" />
-        <div className={styles.wrapper}>
+      <Image src="/images/arrowl.png" alt="" layout='fill'/>
+      <div className={styles.wrapper}>
         <div className= {styles.imgContainer}>
-            {images.map((images,i) => 
-            <Image src = "/images/bike.png" key ={i} />
-            )}
+            {/* {images.map((images,i) =>  */}
+            <Image src = "/images/bike.png"  layout = 'fill'/>
+            {/* )} */}
         </div>
-        </div>
-<Image src = "/images/arrowr.png" alt = "" layout = 'fill'/>
+      </div>
+      <Image src = "/images/arrowr.png" alt = "" layout = 'fill'/>
     </div>
   );
 };

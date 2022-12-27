@@ -15,12 +15,13 @@ const Featured = () => {
   const handleArrow = (direction) =>{
     if(direction==="l"){
       setIndex(index !== 0 ? index -1 : 2)
+      
     }
     if(direction==="r"){
       setIndex(index !== 2 ? index +1 : 0)
     }
   }
-  console.log(index);
+  console.log(images[index]);
   return (
     <div className={styles.container}>
       <div className={styles.arrowContainer} style={{ left: 0 }} onClick={()=>handleArrow("l")}>
@@ -28,8 +29,8 @@ const Featured = () => {
       </div>
       <div className={styles.wrapper} >
         {/* {images.map((img, i) => ( */}
-          <div className={styles.imgContainer} >
-            <Image src={images[index]} alt = "" layout="fill" objectFit="contain" />
+          <div className={styles.imgContainer}>
+          <Image src={images[index]}  alt = "" layout="fill" objectFit="contain" />
           </div>
         {/* ))} */}
       </div>

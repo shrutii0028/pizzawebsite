@@ -30,11 +30,17 @@ export default async function handler(req, res) {
 
   if (method === "POST") {
 
-    
+    console.log('iowuqeoiuw')
     try {
-      const product = await Product.create(req.body);
-      res.status(201).json(product);
+      console.log(req.body)
+      let new_product = new Product(req.body)
+      new_product.save(function(err){
+        if(err) console.log(err); 
+      });
+      // const product = await Product.updateOne(req.body);
+      res.status(201).json(new_product);
     } catch (err) {
+      console.error(err)
       res.status(500).json(err);
     }
   }}

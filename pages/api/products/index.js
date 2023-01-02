@@ -30,7 +30,6 @@ export default async function handler(req, res) {
 
   if (method === "POST") {
 
-    console.log('iowuqeoiuw')
     try {
       console.log(req.body)
       let new_product = new Product(req.body)

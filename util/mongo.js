@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 // const MONGO_URL = process.env.MONGO_URL
-const MONGO_URL = 'mongodb+srv://Wisekhan10:Wisekhan1998@cluster0.m8izi.mongodb.net/?retryWrites=true&w=majority'
+const MONGO_URL = 'mongodb+srv://shruti:pizza@cluster0.scxalsx.mongodb.net/?retryWrites=true&w=majority'
 
 
 if (!MONGO_URL) {

@@ -20,7 +20,24 @@ export default function Home({pizzaList}) {
 }
 
 export const getServerSideProps = async () =>{
-  const res = await axios.post("http://localhost:4000/api/products");
+  const payload = {
+    "title": "pizza4",
+    "img": "/images/pizza.png",
+    "desc": "desc4",
+    "prices": [
+        12,
+        13,
+        14
+    ],
+"extraOption":[{
+    "text":"Spicy sauce",
+    "price": 3
+}
+]
+
+}
+  const res = await axios.post("http://localhost:4000/api/products", payload);
+  console.log ("response " + res.data)
   return{
     props:{
       pizzaList: res.data,

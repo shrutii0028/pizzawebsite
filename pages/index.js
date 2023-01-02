@@ -20,12 +20,11 @@ export default function Home({pizzaList}) {
 }
 
 export const getServerSideProps = async () =>{
-  const res = await axios.post("http://localhost:4000/api/products");
+
+  const res = await axios.get("http://localhost:4000/api/products");
   return{
     props:{
       pizzaList: res.data,
     },
-
   }
-
 }

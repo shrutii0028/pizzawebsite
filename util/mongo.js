@@ -15,11 +15,11 @@ if (!MONGO_URL) {
  * in development. This prevents connections growing exponentially
  * during API Route usage.
  */
-// let cached = global.mongoose
+let cached = global.mongoose
 
-// if (!cached) {
-//   cached = global.mongoose = { conn: null, promise: null }
-// }
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null }
+}
 
 mongoose.connect(MONGO_URL,{
       bufferCommands: false,
@@ -29,34 +29,34 @@ mongoose.connect(MONGO_URL,{
 
 
 async function dbConnect() {
-  const db = mongoose.connection
-  db.once("open", () => {console.log("DB started successfully")})
-  // console.log("DB started successfully")
-  // if (cached.conn) {
-  //   return cached.conn
-  // }
+  // const db = mongoose.connection
+  // db.once("open", () => {console.log("DB started successfully")})
+  // // console.log("DB started successfully")
+  if (cached.conn) {
+    return cached.conn
+  }
 
-  // if (!cached.promise) {
-  //   const opts = {
-  //     bufferCommands: false,
-  //     useNewUrlParser:true,
-  //     useUnifiedTopology:true
-  //   }
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+      useNewUrlParser:true,
+      useUnifiedTopology:true
+    }
 
-  //   cached.promise = mongoose.connect(MONGO_URL, opts).then((mongoose) => {
-  //     console.log('12344r3')
-  //     return mongoose
-  //   })
-  // }
+    cached.promise = mongoose.connect(MONGO_URL, opts).then((mongoose) => {
+      console.log('12344r3')
+      return mongoose
+    })
+  }
 
-  // try {
-  //   cached.conn = await cached.promise
-  // } catch (e) {
-  //   cached.promise = null
-  //   throw e
-  // }
+  try {
+    cached.conn = await cached.promise
+  } catch (e) {
+    cached.promise = null
+    throw e
+  }
 
-  // return db
+  return cached.conn
 
 }
 

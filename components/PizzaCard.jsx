@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "../styles/PizzaCard.module.css";
 
 const PizzaCard = ({pizza}) => {
+  console.log('pizza: ' + pizza)
   return (
     <div className={styles.container}>
       <Image src={pizza.img} alt="" width="200" height="200" />

@@ -1,5 +1,5 @@
 import dbConnect from "../../../util/mongo";
-import {Product} from "../../../models/Product";
+import Product from "../../../models/Product";
 
 // const {MongoClient} = require ('mongodb')
 // const url = 'mongodb://localhost:4000'

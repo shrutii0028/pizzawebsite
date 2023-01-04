@@ -5,7 +5,7 @@ import PizzaList from '../components/PizzaList'
 import axios from 'axios'
 
 
-export default function Home({pizzaList}) {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,35 +14,35 @@ export default function Home({pizzaList}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured/> 
-      <PizzaList pizzaList = {pizzaList}/>
+      <PizzaList/>
   </div>
   )
 }
 
-export const getServerSideProps = async () =>{
-  const payload = {
-    "title": "pizza4",
-    "img": "/images/pizza.png",
-    "desc": "desc4",
-    "prices": [
-        12,
-        13,
-        14
-    ],
-"extraOption":[{
-    "text":"Spicy sauce",
-    "price": 3
-}
-]
+// export const getServerSideProps = async () =>{
+//   const payload = {
+//     "title": "pizza4",
+//     "img": "/images/pizza.png",
+//     "desc": "desc4",
+//     "prices": [
+//         12,
+//         13,
+//         14
+//     ],
+// "extraOption":[{
+//     "text":"Spicy sauce",
+//     "price": 3
+// }
+// ]
 
-}
-  const res = await axios.post("http://localhost:4000/api/products", payload);
-  console.log ("response " + res.data)
-  return{
-    props:{
-      pizzaList: res.data,
-    },
+// }
+//   const res = await axios.post("http://localhost:4000/api/products", payload);
+//   console.log ("response " + res.data)
+//   return{
+//     props:{
+//       pizzaList: res.data,
+//     },
 
-  }
+//   }
 
-}
+// }
